@@ -17,8 +17,9 @@ before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destro
     when 'by_upper_bound'
       Job.published.order('wage_upper_bound DESC')
     else
-     Job.published.order.recent
+     Job.published.recent
   end
+end
 
   def new
     @job = Job.new
